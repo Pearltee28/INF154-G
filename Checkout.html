@@ -1,11 +1,177 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Checkout</title>
     <link rel="stylesheet" href="MainStyles.css" />
+    <link rel="stylesheet" href="Checkout.css" />
 </head>
-<body>
 
+<body class="bg-gray-100">
+
+    <div class="container">
+        <div class="checkout-grid">
+            <!-- Left Column: Shipping & Payment -->
+            <div class="form-column card">
+                <h1 class="main-heading">Checkout</h1>
+
+                <!-- Contact Information -->
+                <section>
+                    <h2 class="section-heading">Contact Information</h2>
+                    <div>
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com">
+                        <p id="email-error" class="error-message">Please enter a valid email address.</p>
+                    </div>
+                </section>
+
+                <!-- Shipping Address -->
+                <section class="form-section">
+                    <h2 class="section-heading">Shipping Address</h2>
+                    <div class="form-grid-cols-2">
+                        <div>
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" id="first-name" name="first-name" class="form-input" placeholder="Peter">
+                        </div>
+                        <div>
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" class="form-input" placeholder="Parker">
+                        </div>
+                        <div class="form-grid-col-span-2">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" id="address" name="address" class="form-input"
+                                placeholder="123 Burnett Street">
+                        </div>
+                        <div>
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" name="city" class="form-input" placeholder="Hatfield">
+                        </div>
+                        <div>
+                            <label for="state" class="form-label">State / Province</label>
+                            <input type="text" id="state" name="state" class="form-input" placeholder="Gauteng">
+                        </div>
+                        <div>
+                            <label for="zip" class="form-label">ZIP / Postal Code</label>
+                            <input type="text" id="zip" name="zip" class="form-input" placeholder="0080">
+                        </div>
+                        <div>
+                            <label for="country" class="form-label">Country</label>
+                            <select id="country" name="country" class="form-input">
+                                <option>South Africa</option>
+                                <option>Canada</option>
+                                <option>Mozambique</option>
+                                <option>Namibia</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment Details -->
+                <section class="form-section">
+                    <h2 class="section-heading">Payment Details</h2>
+                    <div class="payment-grid">
+                        <div>
+                            <label for="card-number" class="form-label">Card Number</label>
+                            <input type="text" id="card-number" name="card-number" class="form-input"
+                                placeholder="0000 0000 0000 0000">
+                            <p id="card-error" class="error-message">Please enter a valid card number.</p>
+                        </div>
+                        <div class="form-grid-cols-2">
+                            <div>
+                                <label for="expiration-date" class="form-label">Expiration (MM/YY)</label>
+                                <input type="text" id="expiration-date" name="expiration-date" class="form-input"
+                                    placeholder="MM/YY">
+                                <p id="expiry-error" class="error-message">Invalid date.</p>
+                            </div>
+                            <div>
+                                <label for="cvc" class="form-label">CVC</label>
+                                <input type="text" id="cvc" name="cvc" class="form-input" placeholder="123">
+                                <p id="cvc-error" class="error-message">Invalid CVC.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="summary-column">
+                <div class="card sticky-card">
+                    <h2 class="summary-heading">Order Summary</h2>
+
+                    <div class="order-items-container">
+                        <!-- Item 1 -->
+                        <div class="order-item" data-price="99.00">
+                            <div class="order-item-details">
+                                <img src="https://placehold.co/64x64/e2e8f0/4a5568?text=Item" alt="Product Image"
+                                    class="order-item-image">
+                                <div>
+                                    <h3 class="order-item-title">Premium Widget</h3>
+                                    <div class="quantity-control">
+                                        <label for="qty-item1" class="sr-only">Quantity</label>
+                                        <input type="number" id="qty-item1" class="quantity-input" value="1" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-item-price">R99.00</span>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="order-item" data-price="25.00">
+                            <div class="order-item-details">
+                                <img src="https://placehold.co/64x64/e2e8f0/4a5568?text=Item" alt="Product Image"
+                                    class="order-item-image">
+                                <div>
+                                    <h3 class="order-item-title">Standard Gadget</h3>
+                                    <div class="quantity-control">
+                                        <label for="qty-item2" class="sr-only">Quantity</label>
+                                        <input type="number" id="qty-item2" class="quantity-input" value="2" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="order-item-price">R50.00</span>
+                        </div>
+                    </div>
+
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal-value" class="total-value"></span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping</span>
+                            <span id="shipping-value" class="total-value" data-shipping-cost="5.00">R65.00</span>
+                        </div>
+                        <div class="total-row final-total">
+                            <span>Total</span>
+                            <span id="total-value"></span>
+                        </div>
+                    </div>
+
+                    <button id="pay-button" class="pay-button">
+                        <span id="pay-button-text" class="button-text">Pay R166.42</span>
+                        <span class="spinner hidden"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay hidden">
+        <div class="modal-content modal-fade-in">
+            <div class="modal-icon-container">
+                <svg class="modal-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="modal-title">Payment Successful!</h3>
+            <p class="modal-text">Thank you for your purchase. A confirmation email has been sent to your address.</p>
+            <button id="close-modal" class="modal-close-button">Close</button>
+        </div>
+    </div>
+
+    <script src="Checkout.js"></script>
 </body>
+
 </html>
