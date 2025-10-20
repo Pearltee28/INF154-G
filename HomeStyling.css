@@ -1,0 +1,178 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Display", sans-serif;
+}
+
+body {
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  max-width: 1785px;
+  margin: 20px auto;
+  background-color: #0d0d0d;
+  border-radius: 15px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d996b5;
+}
+
+/* HERO */
+.hero {
+  width: 100%;
+  max-width: 1785px;
+  margin: 30px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid black;
+  max-height: 85vh;
+}
+
+.hero img {
+  width: 100%;
+  height: auto; /* maintain original aspect ratio */
+  display: block;
+  object-fit: contain; /* ensures the entire image fits */
+  object-position: center top; /* focus on top part if needed */
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -10%);
+  text-align: center;
+  color: #fff;
+}
+
+.main-title {
+  font-family: "SF Pro Display", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 70px;
+  letter-spacing: 1px;
+}
+
+/* SECTION HEADINGS */
+h2 {
+  font-family: "SF Pro Display", sans-serif;
+  font-style: normal; /* no italic */
+  font-weight: 900; /* heavy */
+  font-size: 42px; /* reduced size */
+  text-align: center;
+  margin: 50px 0 20px 0;
+  color: #000; /* black */
+}
+
+/* SECTIONS */
+.carousel {
+  position: relative;
+  max-width: 1000px; /* container width */
+  margin: 20px auto;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-slide {
+  min-width: 100%; /* one slide visible at a time */
+  box-sizing: border-box;
+  display: flex; /* center image inside slide */
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide img {
+  width: 80%; /* adjust size to fit nicely */
+  max-width: 500px; /* prevent it from being huge on large screens */
+  height: auto; /* maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Navigation buttons */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.prev {
+  left: -20px;
+}
+.next {
+  right: -20px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #333;
+}
+
+/* POPULAR ITEMS GRID */
+.popular-items {
+  margin-top: -20px;
+}
+.picture-grid {
+  margin-top: -20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1785px; /* same width as nav */
+  margin: 0 auto;
+}
+
+.picture-grid img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 10px;
+}

@@ -1,22 +1,68 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>&copy;VivaCafé</title>
-    <link rel="stylesheet" href="MainStyles.css" />
+    <meta charset="utf-8">
+    <title>Viva - Homepage</title>
+    <link rel="stylesheet" href="HomeStyling.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!--NAV BAR-->
+    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="logo">
-            <img src="Brand-ASSETS/logo_WHITE.svg" alt="logo">
+            <img src="Brand-ASSETS/logo_WHITE.svg" alt="Logo">
         </div>
         <ul class="nav-links">
             <li><a href="Home.html">Home</a></li>
             <li><a href="ProductListing.html">Products</a></li>
-            <li><a href="</li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Cart.html">Cart</a></li>
         </ul>
     </nav>
+
+    <!-- HERO BANNER -->
+    <header class="hero">
+        <img src="Images/Hero(3500x2333px).jpg" alt="Hero Banner">
+
+    </header>
+
+    <main>
+        <!-- FEATURED PRODUCTS -->
+        <section class="featured-products">
+            <h2>Newest Arrivals</h2>
+            <div class="carousel">
+                <button class="prev">&#10094;</button>
+                <div class="carousel-track-container">
+                    <ul class="carousel-track">
+                        <li class="carousel-slide">
+                            <img src="Images/ONEtransparent.png" alt="Slide 1">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="Images/FOURtransparent.png" alt="Slide 2">
+                        </li>
+                        <li class="carousel-slide">
+                            <img src="Images/SIXtransparent.png" alt="Slide 3">
+                        </li>
+                    </ul>
+                </div>
+                <button class="next">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- POPULAR ITEMS -->
+        <section class="popular-items">
+            <h2>Popular Items</h2>
+            <div class="picture-grid">
+                <img src="Images/SIXtransparent.png" alt="Item 1">
+                <img src="Images/TWOtransparent.png" alt="Item 2">
+                <img src="Images/THREEtransparent.png" alt="Item 3">
+            </div>
+        </section>
+    </main>
+    <script src="Home.js"></script>
 </body>
+
 </html>

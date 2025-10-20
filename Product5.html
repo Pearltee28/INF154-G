@@ -1,11 +1,137 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <title>Coco Mocha&trade;</title>
+    <title>The Mysterious One&trade;</title>
     <link rel="stylesheet" href="MainStyles.css" />
-</head>
-<body>
+    <!-- FAV ICON -->
+    <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <defs>
+        <linearGradient id='grad' x1='1' y1='0' x2='0' y2='0'>
+          <stop offset='0%' stop-color='%23fcc5e4'/>
+          <stop offset='15%' stop-color='%23fda34b'/>
+          <stop offset='35%' stop-color='%23ff7882'/>
+          <stop offset='52%' stop-color='%23c8699e'/>
+          <stop offset='71%' stop-color='%237046aa'/>
+          <stop offset='87%' stop-color='%230c1db8'/>
+          <stop offset='100%' stop-color='%23020f75'/>
+        </linearGradient>
+      </defs>
+      <circle cx='50' cy='50' r='45' fill='url(%23grad)' />
+    </svg>">
 
+</head>
+
+<body class="mysterious">
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Brand-ASSETS/logo_WHITE.svg" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="ProductListing.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <div class="main-container">
+            <section class="product-section">
+                <!-- Left: Image / container -->
+                <div class="product-image">
+                    <div class="fill"></div>
+
+                    <img src="Images/FIVEtransparent.png" alt="Product Image" />
+                </div>
+
+                <!-- Right: Product info -->
+                <div class="product-info">
+                    <div class="info-container animate">
+                        <h2>The Mysterious&trade;</h2>
+                        <p class="price">R19.00</p>
+                        <p class="description">
+                            The Mysterious Flavor teases the senses — smooth, secretive, and impossible to pin down.
+                            It opens with subtle whispers of exotic fruits, layered with hints of spice and a touch of
+                            tangy zest.
+                            Each sip reveals a new twist, keeping your taste buds guessing and engaged.
+                            The finish is silky and lingering, leaving a gentle sweetness that invites you back for
+                            another taste.
+                        </p>
+
+                        <!-- MORE INFO -->
+                        <div class="information-more">
+                            <!-- <h3 class = "lister">more Info</h3> -->
+                            <p class="description">
+                            <ul>
+                                <li>Vegan friendly</li>
+                                <li>Low in sugar</li>
+                                <li>Safe for children under 12 years</li>
+                            </ul>
+                            </p>
+
+                        </div>
+
+                        <!-- Size options -->
+                        <div class="size-options">
+                            <span class="size-option">330ml</span>
+                            <span class="size-option">6 pack</span>
+                            <span class="size-option">12 pack</span>
+                        </div>
+
+                        <!-- Quantity + Add to Cart -->
+                        <div class="purchase">
+                            <input type="number" min="1" value="1" class="quantity" />
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+
+                        <!-- Nutritional Facts -->
+                        <div class="nutrition-facts">
+                            <h3>Nutritional Facts</h3>
+                            <table>
+                                <tr>
+                                    <th>Serving Size</th>
+                                    <td>330ml</td>
+                                </tr>
+                                <tr>
+                                    <th>Calories</th>
+                                    <td>120</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Fat</th>
+                                    <td>0g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sodium</th>
+                                    <td>15mg</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Carbohydrate</th>
+                                    <td>28g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sugars</th>
+                                    <td>9g</td>
+                                </tr>
+                                <tr>
+                                    <th>Protein</th>
+                                    <td>0g</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- JAVASCRIPT IMPORT -->
+    <script src='Cart.js'></script>
+    <script src='Products.js'></script>
 </body>
+
 </html>

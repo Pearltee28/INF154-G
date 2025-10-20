@@ -12,67 +12,6 @@
    * Expired Card: 01/24 (or any past date)
    * Invalid CVC: 1
    */
-
-  // --- FORM VALIDATION ELEMENTS ---
-  const email = document.getElementById("email");
-  const cardNumber = document.getElementById("card-number");
-  const expirationDate = document.getElementById("expiration-date");
-  const cvc = document.getElementById("cvc");
-  const payButton = document.getElementById("pay-button");
-  const successModal = document.getElementById("success-modal");
-  const closeModal = document.getElementById("close-modal");
-  const formInputs = document.querySelectorAll(".form-input");
-
-  // --- ORDER SUMMARY ELEMENTS ---
-  const orderItems = document.querySelectorAll(".order-item");
-  const subtotalEl = document.getElementById("subtotal-value");
-  const shippingEl = document.getElementById("shipping-value");
-  const taxesEl = document.getElementById("taxes-value");
-  const totalEl = document.getElementById("total-value");
-  const payButtonText = document.getElementById("pay-button-text");
-
-  const TAX_RATE = 0.08; // 8% tax rate
-
-  // --- DYNAMIC CART CALCULATION ---
-  const updateTotals = () => {
-    let subtotal = 0;
-
-    orderItems.forEach((item) => {
-      const price = parseFloat(item.dataset.price);
-      const quantityInput = item.querySelector(".quantity-input");
-      const quantity = parseInt(quantityInput.value, 10);
-
-      const lineItemTotal = price * quantity;
-      const itemPriceEl = item.querySelector(".order-item-price");
-      // Update the displayed price for this specific item row
-      if (itemPriceEl) {
-        itemPriceEl.textContent = `R${lineItemTotal.toFixed(2)}`;
-      }
-
-      subtotal += lineItemTotal;
-    });
-
-    const shippingCost = parseFloat(shippingEl.dataset.shippingCost);
-    const taxes = subtotal * TAX_RATE;
-    const total = subtotal + shippingCost + taxes;
-
-    subtotalEl.textContent = `R${subtotal.toFixed(2)}`;
-    taxesEl.textContent = `R${taxes.toFixed(2)}`;
-    totalEl.textContent = `R${total.toFixed(2)}`;
-    payButtonText.textContent = `Pay R${total.toFixed(2)}`;
-  };
-
-  // Add event listeners to all quantity inputs
-  orderItems.forEach((item) => {
-    const quantityInput = item.querySelector(".quantity-input");
-    if (quantityInput) {
-      quantityInput.addEventListener("input", updateTotals);
-    }
-  });
-
-  // Initial calculation on page load
-  updateTotals();
-
   // --- UTILITY FUNCTIONS ---
   const showError = (input, messageId) => {
     const errorEl = document.getElementById(messageId);
@@ -86,7 +25,116 @@
     if (errorEl) errorEl.style.display = "none";
   };
 
-  // --- VALIDATION LOGIC ---
+  // --- ORDER SUMMARY & CART LOGIC ---
+  const subtotalEl = document.getElementById("subtotal-value");
+  const shippingEl = document.getElementById("shipping-value");
+  const totalEl = document.getElementById("total-value");
+  const payButtonText = document.getElementById("pay-button-text");
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const updateTotals = () => {
+    let subtotal = 0;
+    const orderItems = document.querySelectorAll(".order-item");
+
+    orderItems.forEach((item) => {
+      const price = parseFloat(item.dataset.price);
+      const quantityInput = item.querySelector(".quantity-input");
+      const quantity = parseInt(quantityInput.value, 10);
+      const lineItemTotal = price * quantity;
+      const itemPriceEl = item.querySelector(".order-item-price");
+      if (itemPriceEl) {
+        itemPriceEl.textContent = `R${lineItemTotal.toFixed(2)}`;
+      }
+      subtotal += lineItemTotal;
+    });
+
+    let shippingCost = 65.0;
+    if (subtotal >= 500 || subtotal === 0) {
+      shippingCost = 0;
+    }
+
+    const total = subtotal + shippingCost;
+
+    shippingEl.textContent = `R${shippingCost.toFixed(2)}`;
+    subtotalEl.textContent = `R${subtotal.toFixed(2)}`;
+    totalEl.textContent = `R${total.toFixed(2)}`;
+    payButtonText.textContent = `Pay R${total.toFixed(2)}`;
+  };
+
+  const populateOrderSummary = () => {
+    const container = document.querySelector(".order-items-container");
+    if (!container) return;
+    container.innerHTML = "";
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p>Your cart is empty.</p>";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      const itemHtml = `
+                <div class="order-item" data-price="${item.price.toFixed(
+                  2
+                )}" data-name="${item.name}">
+                    <div class="order-item-details">
+                        <img src="${item.image}" alt="${
+        item.name
+      }" class="order-item-image" style="width:64px; height:64px; object-fit:contain;">
+                        <div>
+                            <h3 class="order-item-title">${item.name}</h3>
+                            <div class="quantity-control">
+                                <label for="qty-item${index}" class="sr-only">Quantity</label>
+                                <input type="number" id="qty-item${index}" class="quantity-input" value="${
+        item.quantity
+      }" min="0">
+                            </div>
+                        </div>
+                    </div>
+                    <span class="order-item-price">R${(
+                      item.price * item.quantity
+                    ).toFixed(2)}</span>
+                </div>`;
+      container.innerHTML += itemHtml;
+    });
+  };
+
+  function addQuantityListeners() {
+    document.querySelectorAll(".quantity-input").forEach((input) => {
+      input.addEventListener("input", (event) => {
+        const orderItemEl = event.target.closest(".order-item");
+        const itemName = orderItemEl.dataset.name;
+        const newQuantity = parseInt(event.target.value, 10);
+
+        const cartItem = cart.find((item) => item.name === itemName);
+
+        if (cartItem) {
+          if (newQuantity > 0) {
+            cartItem.quantity = newQuantity;
+          } else {
+            cart = cart.filter((item) => item.name !== itemName);
+            orderItemEl.remove();
+          }
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        updateTotals();
+      });
+    });
+  }
+
+  // --- INITIAL PAGE LOAD ---
+  populateOrderSummary();
+  addQuantityListeners();
+  updateTotals();
+
+  // --- FORM VALIDATION ELEMENTS AND LOGIC ---
+  const email = document.getElementById("email");
+  const cardNumber = document.getElementById("card-number");
+  const expirationDate = document.getElementById("expiration-date");
+  const cvc = document.getElementById("cvc");
+  const payButton = document.getElementById("pay-button");
+  const successModal = document.getElementById("success-modal");
+  const closeModal = document.getElementById("close-modal");
+
   const validateEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
@@ -130,7 +178,6 @@
       showError(expirationDate, "expiry-error");
       return false;
     }
-
     hideError(expirationDate, "expiry-error");
     return true;
   };
@@ -150,15 +197,11 @@
     value = value.replace(/(\d{4})/g, "$1 ").trim();
     e.target.value = value;
   });
-
   expirationDate.addEventListener("input", (e) => {
     let value = e.target.value.replace(/\D/g, "").substring(0, 4);
-    if (value.length > 2) {
-      value = value.slice(0, 2) + "/" + value.slice(2);
-    }
+    if (value.length > 2) value = value.slice(0, 2) + "/" + value.slice(2);
     e.target.value = value;
   });
-
   cvc.addEventListener("input", (e) => {
     e.target.value = e.target.value.replace(/\D/g, "").substring(0, 4);
   });
@@ -171,16 +214,23 @@
 
   payButton.addEventListener("click", (e) => {
     e.preventDefault();
+
     const isEmailValid = validateEmail();
     const isCardValid = validateCardNumber();
     const isExpiryValid = validateExpiryDate();
     const isCvcValid = validateCvc();
 
-    let allFieldsValid = true;
-    formInputs.forEach((input) => {
-      if (input.value.trim() === "" && input.id !== "address-2") {
+    let areRequiredFieldsFilled = true;
+    const requiredFields = document.querySelectorAll(
+      "#first-name, #last-name, #address, #city, #state, #zip, #country"
+    );
+
+    requiredFields.forEach((input) => {
+      if (input.value.trim() === "") {
         showError(input, `${input.id}-error`);
-        allFieldsValid = false;
+        areRequiredFieldsFilled = false;
+      } else {
+        hideError(input, `${input.id}-error`);
       }
     });
 
@@ -189,11 +239,10 @@
       isCardValid &&
       isExpiryValid &&
       isCvcValid &&
-      allFieldsValid
+      areRequiredFieldsFilled
     ) {
       const buttonText = payButton.querySelector(".button-text");
       const spinner = payButton.querySelector(".spinner");
-
       if (buttonText) buttonText.style.display = "none";
       if (spinner) spinner.style.display = "inline-block";
       payButton.disabled = true;
@@ -204,17 +253,23 @@
         if (buttonText) buttonText.style.display = "inline-block";
         if (spinner) spinner.style.display = "none";
         payButton.disabled = false;
+        localStorage.removeItem("cart");
       }, 1500);
     }
   });
 
   closeModal.addEventListener("click", () => {
-    successModal.classList.add("hidden");
+    successModal.style.display = "none"; // Directly hide the modal
+    successModal.classList.add("hidden"); // Also add class for consistency
   });
 
-  formInputs.forEach((input) => {
+  document.querySelectorAll(".form-input").forEach((input) => {
     input.addEventListener("input", () => {
-      hideError(input, `${input.id}-error`);
+      if (input.id === "expiration-date") {
+        hideError(input, "expiry-error");
+      } else {
+        hideError(input, `${input.id}-error`);
+      }
     });
   });
 });

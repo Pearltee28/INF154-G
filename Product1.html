@@ -5,19 +5,120 @@
     <meta charset="utf-8" />
     <title>BerryBomb&trade;</title>
     <link rel="stylesheet" href="MainStyles.css" />
+    <!-- FAV ICON -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%239e99bf%22/></svg>">
+
 </head>
 
-<body>
-    <div class="product">
-        <img src="Images/ONE (1).png" alt="BerryBomb">
-        <h3>Premium Widget</h3>
-        <p>R99.00</p>
-        <button class="add-to-cart-btn" data-id="prod1" data-name="Premium Widget" data-price="99.00"
-            data-image="path/to/image.jpg">
-            Add to Cart
-        </button>
-    </div>
-    <script src="Products.js"></script>
+<body class="berry">
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Brand-ASSETS/logo_WHITE.svg" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="ProductListing.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </nav>
+    <!-- Main content -->
+    <main>
+        <div class="main-container">
+            <section class="product-section">
+                <!-- Left: Image / container -->
+                <div class="product-image">
+                    <div class="fill"></div>
+
+                    <img src="Images/ONEtransparent.png" alt="Product Image" />
+                </div>
+
+                <!-- Right: Product info -->
+                <div class="product-info">
+                    <div class="info-container animate">
+                        <h2>BerryBomb&trade;</h2>
+                        <p class="price">R19.00</p>
+                        <p class="description">
+                            BerryBomb is sparkling, bright, and refreshingly clean — a burst of fruity energy in every
+                            sip.It opens with vibrant notes of wild blueberries, layered with crisp apple undertones and
+                            a gentle touch of ripe strawberry. The finish is smooth and uplifting, leaving a subtle
+                            sweetness that keeps you coming back for more. Go ahead, give it a taste. You won't regret
+                            it.
+                        </p>
+
+                        <!-- MORE INFO -->
+                        <div class="information-more">
+                            <!-- <h3 class = "lister">more Info</h3> -->
+                            <p class="description">
+                            <ul>
+                                <li>Vegan friendly</li>
+                                <li>Low in sugar</li>
+                                <li>Safe for children under 12 years</li>
+                            </ul>
+                            </p>
+
+                        </div>
+
+                        <!-- Size options -->
+                        <div class="size-options">
+                            <span class="size-option">330ml</span>
+                            <span class="size-option">6 pack</span>
+                            <span class="size-option">12 pack</span>
+                        </div>
+
+                        <!-- Quantity + Add to Cart -->
+                        <div class="purchase">
+                            <input type="number" min="1" value="1" class="quantity" />
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+
+                        <!-- Nutritional Facts -->
+                        <div class="nutrition-facts">
+                            <h3>Nutritional Facts</h3>
+                            <table>
+                                <tr>
+                                    <th>Serving Size</th>
+                                    <td>330ml</td>
+                                </tr>
+                                <tr>
+                                    <th>Calories</th>
+                                    <td>120</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Fat</th>
+                                    <td>0g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sodium</th>
+                                    <td>15mg</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Carbohydrate</th>
+                                    <td>28g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sugars</th>
+                                    <td>9g</td>
+                                </tr>
+                                <tr>
+                                    <th>Protein</th>
+                                    <td>0g</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- JAVASCRIPT IMPORT -->
+    <script src='Cart.js'></script>
+    <script src='Products.js'></script>
 </body>
 
 </html>

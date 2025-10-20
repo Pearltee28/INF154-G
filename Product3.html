@@ -1,11 +1,124 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <title>Macha Madness&trade;</title>
+    <title>Peach Buzz&trade;</title>
     <link rel="stylesheet" href="MainStyles.css" />
-</head>
-<body>
+    <!-- FAV ICON -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23D93B65%22/></svg>">
 
+</head>
+
+<body class="peach">
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Brand-ASSETS/logo_WHITE.svg" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="ProductListing.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <div class="main-container">
+            <section class="product-section">
+                <!-- Left: Image / container -->
+                <div class="product-image">
+                    <div class="fill"></div>
+
+                    <img src="Images/THREEtransparent.png" alt="Product Image" />
+                </div>
+
+                <!-- Right: Product info -->
+                <div class="product-info">
+                    <div class="info-container animate">
+                        <h2>Peach Buzz&trade;</h2>
+                        <p class="price">R19.00</p>
+                        <p class="description">
+                            Peach Buzz is juicy, sunlit, and irresistibly smooth — a sparkling taste of summer in every
+                            sip.
+                            It opens with lush notes of golden peach, balanced by hints of nectar-sweet apricot and a
+                            whisper
+                            of tangy citrus. The finish is crisp and playful, leaving a gentle fizz of sweetness that
+                            lingers
+                            on your tongue, just long enough to make you smile.
+                        </p>
+
+                        <!-- MORE INFO -->
+                        <div class="information-more">
+                            <!-- <h3 class = "lister">more Info</h3> -->
+                            <p class="description">
+                            <ul>
+                                <li>Vegan friendly</li>
+                                <li>Low in sugar</li>
+                                <li>Safe for children under 12 years</li>
+                            </ul>
+                            </p>
+
+                        </div>
+
+                        <!-- Size options -->
+                        <div class="size-options">
+                            <span class="size-option">330ml</span>
+                            <span class="size-option">6 pack</span>
+                            <span class="size-option">12 pack</span>
+                        </div>
+
+                        <!-- Quantity + Add to Cart -->
+                        <div class="purchase">
+                            <input type="number" min="1" value="1" class="quantity" />
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+
+                        <!-- Nutritional Facts -->
+                        <div class="nutrition-facts">
+                            <h3>Nutritional Facts</h3>
+                            <table>
+                                <tr>
+                                    <th>Serving Size</th>
+                                    <td>330ml</td>
+                                </tr>
+                                <tr>
+                                    <th>Calories</th>
+                                    <td>120</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Fat</th>
+                                    <td>0g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sodium</th>
+                                    <td>15mg</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Carbohydrate</th>
+                                    <td>28g</td>
+                                </tr>
+                                <tr>
+                                    <th>Sugars</th>
+                                    <td>9g</td>
+                                </tr>
+                                <tr>
+                                    <th>Protein</th>
+                                    <td>0g</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- JAVASCRIPT IMPORT -->
+    <script src='Cart.js'></script>
+    <script src='Products.js'></script>
 </body>
+
 </html>

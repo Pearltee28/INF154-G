@@ -1,11 +1,62 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
     <link rel="stylesheet" href="MainStyles.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="CartStyles.css" />
 
+
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Brand-ASSETS/logo_WHITE.svg" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="ProductListing.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <div class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>SubTotal</span>
+                <span id="subtotal">R0.00</span>
+            </div>
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="total">R0.00</span>
+            </div>
+
+            <div class="cart-buttons">
+                <a href="Checkout.html" class="checkout-btn">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="Cart.js"></script>
 </body>
+
 </html>

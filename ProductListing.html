@@ -1,11 +1,115 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <title>Products</title>
-    <link rel="stylesheet" href="MainStyles.css" />
+    <title>Products List</title>
+    <link rel="stylesheet" href="ProductListStyles.css" />
 </head>
-<body>
 
+<body>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Brand-ASSETS/logo_WHITE.svg" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="ProductListing.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+        </ul>
+    </nav>
+    <main>
+
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div class="filters">
+            <div>
+                <label>Filter by Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="fruity">Fruity</option>
+                    <option value="mystery">Mystery</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Filter by Price:</label>
+                <select id="priceFilter">
+                    <option value="all">All Prices</option>
+                    <option value="under20">Under R20</option>
+                    <option value="20-30">R20 - R30</option>
+                    <option value="over30">Over R30</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Sort by:</label>
+                <select id="sortSelect">
+                    <option value="default">Default</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Name: A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="productGrid">
+            <article class="product-card" data-category="fruity" data-price="25">
+                <a href="Product1.html">
+                    <img src="Images/ONEtransparent.png" alt="Berry Bomb">
+                </a>
+                <h3>Berry Bomb, 330ml</h3>
+                <p>R 25</p>
+            </article>
+
+            <article class="product-card" data-category="fruity" data-price="19">
+                <a href="Product2.html">
+                    <img src="Images/TWOtransparent.png" alt=" Goblin Lime">
+                </a>
+                <h3>Goblin Lime, 330ml</h3>
+                <p>R 19</p>
+            </article>
+
+            <article class="product-card" data-category="fruity" data-price="19">
+                <a href="Product3.html">
+                    <img src="Images/THREEtransparent.png" alt="Peach Buzz">
+                </a>
+                <h3>Peach Buzz, 330ml</h3>
+                <p>R 19</p>
+            </article>
+
+            <article class="product-card" data-category="fruity" data-price="19">
+                <a href="Product4.html">
+                    <img src="Images/FOURtransparent.png" alt="Classic Blue">
+                </a>
+                <h3>Classic Blue, 330ml</h3>
+                <p>R 19</p>
+            </article>
+
+            <article class="product-card" data-category="mystery" data-price="25">
+                <a href="Product5.html">
+                    <img src="Images/FIVEtransparent.png" alt="The Mysterious">
+                </a>
+                <h3>The Mysterious, 330ml</h3>
+                <p>R 25</p>
+            </article>
+
+            <article class="product-card" data-category="fruity" data-price="19">
+                <a href="Product6.html">
+                    <img src="Images/SIXtransparent.png" alt="Very Cherry">
+                </a>
+                <h3>Very Cherry, 330ml</h3>
+                <p>R 19</p>
+            </article>
+        </div>
+    </main>
+    <script src="ProductListing.js"></script>
 </body>
+
 </html>

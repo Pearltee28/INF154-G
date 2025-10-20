@@ -1,13 +1,537 @@
 ﻿/*Global Styles*/
+/* MICHELLE CODE START */
+/* loading fonts */
+@import url("Fonts/Sentient/css/sentient.css");
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 
-/*HomePage Styling*/
+body {
+  font-family: "SF Pro Display", sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
 
-/*Product Listings*/
+.main-container {
+  max-width: 1800px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
 
-/*Individual Products*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Display", sans-serif;
+}
+/* Navigation START */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
 
-/*Cart Page*/
+  max-width: 1785px;
+  margin: 20px auto 10px auto;
+  background-color: #9e99bf;
+  border-radius: 15px;
+  border: 1px solid #0d0d0d;
+  box-shadow: 5px 3px 0px black;
 
-/*Checkout Page*/
+  position: relative;
+  z-index: 10;
+}
 
-/*About Page*/
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #0d0259;
+}
+
+/* NAVIGATION END */
+
+/* PRODUCT STYLING START */
+.product-section {
+  display: flex;
+  flex-wrap: wrap; /* stack on smaller screens */
+  gap: 10px; /* space between children */
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+
+  max-width: 1800px; /* same as navbar */
+  width: 100%; /* responsive width */
+  margin: 0 auto; /* center horizontally */
+}
+
+/* Left Image Container */
+.product-image {
+  position: relative;
+  flex: 1;
+  border: 1px solid #0d0d0d;
+  min-width: 450px;
+  max-width: 750px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 15px;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-color: #9e99bf; /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+
+@keyframes fillUp {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+/* Right Product Info */
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.product-info h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.info-container {
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  border: 1px solid #0d0d0d;
+  padding: 30px;
+  min-height: 800px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.info-container.animate {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.5s ease forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.price {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.description {
+  text-align: justify;
+  text-justify: newspaper;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0d0d0d;
+  margin-bottom: 10px;
+}
+
+/* Size Options */
+.size-options {
+  display: flex;
+  gap: 30px;
+  margin: 10px 0;
+  margin-bottom: 20px;
+}
+
+.size-option {
+  padding: 8px 15px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  align-content: center;
+  background-color: #0d0259;
+  color: #fff;
+  border-radius: 13px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.size-option:hover {
+  background-color: #d996b5;
+  color: #0d0d0d;
+}
+
+/* For user to see exactly what selection they made */
+.size-option.selected {
+  background-color: #d996b5;
+  color: #0d0d0d;
+}
+
+/* Quantity + Add to Cart */
+.purchase {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.quantity {
+  width: 60px;
+  padding: 5px 10px;
+  font-size: 16px;
+  width: 100px;
+  height: 40px;
+  border-radius: 13px;
+  border: 1px solid #0d0d0d;
+  text-align: center;
+}
+
+.add-to-cart {
+  padding: 8px 15px;
+  width: 100px;
+  height: 40px;
+  background-color: #9e99bf;
+  color: #0d0259;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #0d0259;
+  color: #f2f2f2;
+}
+
+/* MORE INFO */
+ul {
+  list-style-type: disc;
+  position: relative;
+  padding-left: 20px;
+}
+.information-more {
+  margin-bottom: 20px;
+  color: #0d0d0d;
+}
+.lister {
+  font-family: "SF Pro Display" sans-serif;
+  font-weight: 400;
+}
+
+/* NUTRITONAL FACTS */
+.nutrition-facts {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #0d0d0d;
+  border-radius: 10px;
+  padding: 15px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px;
+}
+
+.nutrition-facts h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: left;
+  border-bottom: 1px solid #0d0d0d;
+  padding-bottom: 5px;
+}
+
+.nutrition-facts table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.nutrition-facts th,
+.nutrition-facts td {
+  text-align: left;
+  padding: 4px 8px;
+}
+
+.nutrition-facts tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.nutrition-facts th {
+  font-weight: 600;
+}
+
+/* COLOR OVERRIDES */
+/* navbar */
+body.berry .navbar {
+  background-color: #9e99bf;
+}
+
+body.goblin .navbar {
+  background-color: #317302;
+}
+body.goblin .nav-links a:hover {
+  color: #0d0d0d;
+}
+body.peach .navbar {
+  background-color: #d93b65;
+}
+body.peach .nav-links a:hover {
+  color: #0d0d0d;
+}
+body.blue .navbar {
+  background-color: #3f8efc;
+}
+body.blue .nav-links a:hover {
+  color: #0d0d0d;
+}
+body.peach .nav-links a:hover {
+  color: #0d0d0d;
+}
+body.mysterious .navbar {
+  background-color: #0d0d0d;
+  box-shadow: 5px 3px 0px #f2f2f2;
+}
+body.mysterious .nav-links a:hover {
+  color: #e6719b;
+}
+body.cherry .navbar {
+  background-color: #8c0303;
+}
+body.cherry .nav-links a:hover {
+  color: #0d0d0d;
+}
+/* /add-to-cart */
+body.berry .add-to-cart {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+body.berry .add-to-cart:hover {
+  background-color: #0d0259;
+}
+body.goblin .add-to-cart {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+body.goblin .add-to-cart:hover {
+  background-color: #0941b3;
+}
+body.peach .add-to-cart {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+body.peach .add-to-cart:hover {
+  background-color: #ff630e;
+}
+body.blue .add-to-cart {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+body.blue .add-to-cart:hover {
+  background-color: #488c04;
+}
+body.mysterious .add-to-cart {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+body.mysterious .add-to-cart:hover {
+  background-color: #e6719b;
+}
+body.cherry .add-to-cart {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+body.cherry .add-to-cart:hover {
+  background-color: #e6719b;
+}
+/* size buttons */
+body.berry .size-option {
+  background-color: #0d0259;
+}
+body.berry .size-option.selected {
+  background-color: #d996b5;
+  color: #0d0d0d;
+}
+body.berry .size-option:hover {
+  background-color: #d996b5;
+  color: #0d0d0d;
+}
+body.goblin .size-option {
+  background-color: #488c04;
+}
+body.goblin .size-option:hover {
+  background-color: #0941b3;
+  color: #f2f2f2;
+}
+body.goblin .size-option.selected {
+  background-color: #0941b3;
+  color: #f2f2f2;
+}
+body.peach .size-option {
+  background-color: #e6719b;
+}
+body.peach .size-option:hover {
+  background-color: #ff630e;
+  color: #f2f2f2;
+}
+body.peach .size-option.selected {
+  background-color: #ff630e;
+  color: #f2f2f2;
+}
+body.blue .size-option {
+  background-color: #3f8efc;
+}
+body.blue .size-option:hover {
+  background-color: #488c04;
+  color: #f2f2f2;
+}
+body.blue .size-option.selected {
+  background-color: #488c04;
+  color: #f2f2f2;
+}
+body.mysterious .size-option {
+  background-color: #020f75;
+}
+body.mysterious .size-option:hover {
+  background-color: #e6719b;
+  color: #f2f2f2;
+}
+body.mysterious .size-option.selected {
+  background-color: #e6719b;
+  color: #f2f2f2;
+}
+body.cherry .size-option {
+  background-color: #8c0303;
+}
+body.cherry .size-option:hover {
+  background-color: #e6719b;
+  color: #f2f2f2;
+}
+body.cherry .size-option.selected {
+  background-color: #e6719b;
+  color: #f2f2f2;
+}
+/* Filler */
+body.berry .fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-color: #9e99bf; /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+
+body.goblin .fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-color: #317302; /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+body.peach .fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-color: #d93b65; /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+body.blue .fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-color: #3f8efc; /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+
+body.mysterious .fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-image: linear-gradient(
+    to top,
+    #fcc5e4 0%,
+    #fda34b 15%,
+    #ff7882 35%,
+    #c8699e 52%,
+    #7046aa 71%,
+    #0c1db8 87%,
+    #020f75 100%
+  ); /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+
+body.cherry .fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%; /* start empty */
+  background-color: #8c0303; /* color of the “liquid” */
+  z-index: 1;
+
+  animation: fillUp 1.2s forwards ease-out;
+}
+/* MICHELLE CODE END */
