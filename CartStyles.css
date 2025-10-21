@@ -66,30 +66,28 @@ h1 {
   font-weight: 500;
 }
 
-.quantity {
+/* .quantity {
   display: flex;
   justify-content: center; /* Centering the buttons */
-  align-items: center; /* Aligning items vertically */
-  gap: 10px; /* Space between quantity and buttons */
-}
+/* align-items: center; /* Aligning items vertically */
+/* gap: 10px; Space between quantity and buttons */
 
 .quantity span {
   min-width: 20px;
   display: inline-block; /* Ensures the span maintains its width */
 }
 
-.quantity button {
+/* .quantity button {
   background: #f2f2f2;
   border: none;
   padding: 4px 10px; /* Adjusted padding for better button appearance */
-  font-size: 16px; /* Increased font size for better visibility */
-  cursor: pointer;
-  border-radius: 4px; /* Adds slightly rounded corners */
-  height: 35px; /* Fixed height for consistency */
-  display: flex; /* Added flex for centering button contents */
-  align-items: center; /* Vertically centers button text */
-  justify-content: center; /* Horizontally centers button text */
-}
+/* font-size: 16px; /* Increased font size for better visibility */
+/* cursor: pointer; */
+/* border-radius: 4px; Adds slightly rounded corners */
+/* height: 35px; Fixed height for consistency */
+/* display: flex; Added flex for centering button contents */
+/* align-items: center; Vertically centers button text */
+/* justify-content: center; Horizontally centers button text */
 
 .cart-summary {
   width: 100%;

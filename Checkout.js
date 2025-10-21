@@ -261,6 +261,8 @@
   closeModal.addEventListener("click", () => {
     successModal.style.display = "none"; // Directly hide the modal
     successModal.classList.add("hidden"); // Also add class for consistency
+
+    location.reload(); // Reload the page to show the empty cart
   });
 
   document.querySelectorAll(".form-input").forEach((input) => {
